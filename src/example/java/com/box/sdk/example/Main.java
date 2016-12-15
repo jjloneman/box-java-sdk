@@ -1,14 +1,15 @@
 package com.box.sdk.example;
 
+import com.box.sdk.*;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import com.box.sdk.BoxAPIConnection;
-import com.box.sdk.BoxFolder;
-import com.box.sdk.BoxItem;
-import com.box.sdk.BoxUser;
-
-import static com.box.sdk.example.Constants.*;
+import static com.box.sdk.example.Constants.DEVELOPER_TOKEN;
+import static com.box.sdk.example.Constants.MAX_DEPTH;
 
 public final class Main {
 
@@ -25,6 +26,24 @@ public final class Main {
 
         BoxFolder rootFolder = BoxFolder.getRootFolder(api);
         listFolder(rootFolder, 0);
+
+        System.out.println("Uploading file...");
+
+        BoxFile userFile = new BoxFile(api, "1");
+        uploadFile(userFile, "src/main/resources/hello_world.txt");
+
+    }
+
+    private static void uploadFile(BoxFile file, String fileName) {
+        InputStream in = null;
+        
+        try {
+            in = new FileInputStream(fileName);
+        } catch (FileNotFoundException e) {
+            System.out.println("File Not Found: " + e);
+        }
+
+        file.uploadVersion(in);
     }
 
     private static void listFolder(BoxFolder folder, int depth) {
