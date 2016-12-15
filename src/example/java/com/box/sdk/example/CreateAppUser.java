@@ -37,8 +37,11 @@ public final class CreateAppUser {
         //implement IAccessTokenCache to store and retrieve access tokens appropriately for your environment.
         IAccessTokenCache accessTokenCache = new InMemoryLRUAccessTokenCache(MAX_CACHE_ENTRIES);
 
-        BoxDeveloperEditionAPIConnection api = BoxDeveloperEditionAPIConnection.getAppEnterpriseConnection(
-            ENTERPRISE_ID, CLIENT_ID, CLIENT_SECRET, encryptionPref, accessTokenCache);
+        BoxDeveloperEditionAPIConnection api = BoxDeveloperEditionAPIConnection.getAppUserConnection(
+                USER_ID, CLIENT_ID, CLIENT_SECRET, encryptionPref, accessTokenCache);
+
+//        BoxDeveloperEditionAPIConnection api = BoxDeveloperEditionAPIConnection.getAppEnterpriseConnection(
+//            ENTERPRISE_ID, CLIENT_ID, CLIENT_SECRET, encryptionPref, accessTokenCache);
 
         CreateUserParams params = new CreateUserParams();
         params.setSpaceAmount(1073741824); //1 GB

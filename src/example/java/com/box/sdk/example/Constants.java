@@ -13,7 +13,7 @@ public final class Constants {
     public static final String PRIVATE_KEY_PASSWORD = "";
     public static final String APP_USER_NAME = "";
     public static final String DEVELOPER_TOKEN = "4IZN4ZIEzqOT6gjp9W9gw1dawNrrpamV";
-    public static final String USER_ID = "";
+    public static final String USER_ID = "jjloneman.alt@gmail.com";
 
     public static final int MAX_CACHE_ENTRIES = 100;
     public static final int MAX_DEPTH = 1;
