@@ -14,16 +14,9 @@ import com.box.sdk.IAccessTokenCache;
 import com.box.sdk.InMemoryLRUAccessTokenCache;
 import com.box.sdk.JWTEncryptionPreferences;
 
-public final class CreateAppUser {
+import static com.box.sdk.example.Constants.*;
 
-    private static final String CLIENT_ID = "";
-    private static final String CLIENT_SECRET = "";
-    private static final String ENTERPRISE_ID = "";
-    private static final String PUBLIC_KEY_ID = "";
-    private static final String PRIVATE_KEY_FILE = "";
-    private static final String PRIVATE_KEY_PASSWORD = "";
-    private static final String APP_USER_NAME = "";
-    private static final int MAX_CACHE_ENTRIES = 100;
+public final class CreateAppUser {
 
     private CreateAppUser() { }
 
