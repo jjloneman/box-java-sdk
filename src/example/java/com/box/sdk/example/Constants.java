@@ -10,7 +10,7 @@ public final class Constants {
     public static final String ENTERPRISE_ID = "";
     public static final String PUBLIC_KEY_ID = "355a7qrb";
     public static final String PRIVATE_KEY_FILE = "C:\\Users\\JJ\\Documents\\Box.com Test\\private_key.pem";
-    public static final String PRIVATE_KEY_PASSWORD = "";
+    public static final String PRIVATE_KEY_PASSWORD = "pass";
     public static final String APP_USER_NAME = "Client";
     public static final String DEVELOPER_TOKEN = "4IZN4ZIEzqOT6gjp9W9gw1dawNrrpamV";
     public static final String USER_ID = "jjloneman.alt@gmail.com";
