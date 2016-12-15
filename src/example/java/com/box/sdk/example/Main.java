@@ -8,9 +8,9 @@ import com.box.sdk.BoxFolder;
 import com.box.sdk.BoxItem;
 import com.box.sdk.BoxUser;
 
+import static com.box.sdk.example.Constants.*;
+
 public final class Main {
-    private static final String DEVELOPER_TOKEN = "";
-    private static final int MAX_DEPTH = 1;
 
     private Main() { }
 
