@@ -32,23 +32,21 @@ public final class Main {
 
         System.out.println("\nUploading file...");
 
-        BoxFile userFile = new BoxFile(api, "");
-        uploadFile(userFile, "src/main/resources/hello_world.txt");
-
+        // 0 is the root folder
+        BoxFolder folder = new BoxFolder(api, "14413766927");
+        uploadFile(folder, "hello_world_api.txt", "src/main/resources/hello_world.txt");
     }
 
-    private static void uploadFile(BoxFile file, String fileName) {
+    private static void uploadFile(BoxFolder folder, String fileName, String fileLocation) {
         InputStream in = null;
 
         try {
-            in = new FileInputStream(fileName);
+            in = new FileInputStream(fileLocation);
         } catch (FileNotFoundException e) {
             System.out.println("File Not Found: " + e);
         }
 
-        BoxFile.Info info;
-
-        file.uploadVersion(in);
+        folder.uploadFile(in, fileName);
     }
 
     private static void listFolder(BoxFolder folder, int depth) {
