@@ -12,7 +12,7 @@ public final class Constants {
     public static final String PRIVATE_KEY_FILE = "src/main/resources/private_key.pem";
     public static final String PRIVATE_KEY_PASSWORD = "pass";
     public static final String APP_USER_NAME = "Client";
-    public static final String DEVELOPER_TOKEN = "RYTatdhDRlOhQF94bNDr4iYpwT2B6K0V";
+    public static final String DEVELOPER_TOKEN = "OCGKUQJKyYl6YFgrrj932RkFwHCBPT0F";
     public static final String USER_ID = "jjloneman.alt@gmail.com";
 
     public static final int MAX_CACHE_ENTRIES = 100;

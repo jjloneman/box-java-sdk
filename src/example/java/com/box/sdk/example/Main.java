@@ -4,6 +4,7 @@ import com.box.sdk.*;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,24 +25,28 @@ public final class Main {
         BoxUser.Info userInfo = BoxUser.getCurrentUser(api).getInfo();
         System.out.format("Welcome, %s <%s>!\n\n", userInfo.getName(), userInfo.getLogin());
 
+        System.out.println("\nListing files...");
+
         BoxFolder rootFolder = BoxFolder.getRootFolder(api);
         listFolder(rootFolder, 0);
 
-        System.out.println("Uploading file...");
+        System.out.println("\nUploading file...");
 
-        BoxFile userFile = new BoxFile(api, "1");
+        BoxFile userFile = new BoxFile(api, "");
         uploadFile(userFile, "src/main/resources/hello_world.txt");
 
     }
 
     private static void uploadFile(BoxFile file, String fileName) {
         InputStream in = null;
-        
+
         try {
             in = new FileInputStream(fileName);
         } catch (FileNotFoundException e) {
             System.out.println("File Not Found: " + e);
         }
+
+        BoxFile.Info info;
 
         file.uploadVersion(in);
     }
@@ -53,7 +58,7 @@ public final class Main {
                 indent += "    ";
             }
 
-            System.out.println(indent + itemInfo.getName());
+            System.out.println(indent + itemInfo.getName() + ":" + itemInfo.getID());
             if (itemInfo instanceof BoxFolder.Info) {
                 BoxFolder childFolder = (BoxFolder) itemInfo.getResource();
                 if (depth < MAX_DEPTH) {
